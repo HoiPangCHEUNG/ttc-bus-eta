@@ -33,7 +33,7 @@ const navItems = [
   },
 ];
 
-export function BottomBar() {
+export function BottomBar({ width }: { width: number }) {
   const { t } = useTranslation();
   const fluentStyle = fluentStyles();
 
@@ -43,11 +43,12 @@ export function BottomBar() {
         <Button
           shape="circular"
           appearance="primary"
-          className={fluentStyle.bottomNavButton}
+          className={`bottomNavBarItem ${fluentStyle.bottomNavButton}`}
           key={t(item.label)}
           icon={item.icon_active}
+          size="large"
         >
-          <Text>{t(item.label)}</Text>
+          {width > 500 && <Text>{t(item.label)}</Text>}
         </Button>
       );
     } else {
@@ -56,10 +57,11 @@ export function BottomBar() {
           <Button
             shape="circular"
             appearance="subtle"
-            className={fluentStyle.bottomNavButton}
+            className={`bottomNavBarItem ${fluentStyle.bottomNavButton}`}
             icon={item.icon}
+            size="large"
           >
-            <Text>{t(item.label)}</Text>
+            {width > 500 && <Text>{t(item.label)}</Text>}
           </Button>
         </Link>
       );
@@ -67,15 +69,15 @@ export function BottomBar() {
   });
 
   // add support for swithing lang
-
   return (
-    <nav className="bottomNav">
+    <div className="bottomNav">
       {BottomNavItems}
-      <LanguageSelection />
-    </nav>
+      <LanguageSelection width={width} />
+    </div>
   );
 }
 
+// to-do: discussion
 export function SideBar() {
   const { t } = useTranslation();
   const fluentStyle = fluentStyles();
@@ -116,7 +118,7 @@ export function SideBar() {
   return (
     <nav className="sideNav">
       {BottomNavItems}
-      <LanguageSelection />
+      {/* <LanguageSelection /> */}
     </nav>
   );
 }

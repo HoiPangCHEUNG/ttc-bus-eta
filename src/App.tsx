@@ -5,25 +5,20 @@ import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router";
 
 import "./App.css";
-import { BottomBar, SideBar } from "./components/nav/NavBar";
+import { BottomBar } from "./components/nav/NavBar";
 
 function App() {
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const [width, setWidth] = useState(window.innerWidth);
 
   const { t } = useTranslation();
 
   const handleResize = () => {
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
+    setWidth(window.innerWidth);
   };
   useEffect(() => {
     window.addEventListener("resize", handleResize, false);
   }, []);
+
   return (
     <div className="container">
       <div className="navBar">
@@ -33,11 +28,9 @@ function App() {
         >
           <Title1 className="text-xl font-bold">{t("home.title.name")}</Title1>
         </Link>
-        {dimensions.width >= 800 && <SideBar />}
       </div>
       <Outlet />
-      {dimensions.width < 800 && <div className="nav-buffer" />}
-      {dimensions.width < 800 && <BottomBar />}
+      <BottomBar width={width} />
     </div>
   );
 }

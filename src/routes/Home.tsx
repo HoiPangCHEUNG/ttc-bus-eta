@@ -22,7 +22,7 @@ export default function Home() {
   }, [input]);
 
   return (
-    <main>
+    <main className="mainPage">
       <form className="searchBlock">
         <Input
           value={input}
