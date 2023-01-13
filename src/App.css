@@ -71,6 +71,20 @@ body,
   padding-left: 0 !important;
 }
 
+.fui-AccordionPanel {
+  display: grid;
+  grid-template-columns: 36px 36px auto;
+  grid-auto-rows: auto;
+  align-items: start;
+  gap: 4px;
+  padding-bottom: 4px;
+}
+
+.lineDetails {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .navBar {
   padding: 1rem;
   display: flex;
@@ -134,9 +148,10 @@ main {
 }
 
 .card-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 60px auto auto;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
   padding: 0 0.2rem;
 }
 
