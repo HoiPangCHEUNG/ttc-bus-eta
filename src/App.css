@@ -38,7 +38,7 @@ body,
   position: fixed;
   bottom: 0px;
   text-align: center;
-  background-color: var(--colorNeutralBackground1);
+  background-color: var(--colorNeutralBackground2);
 }
 
 .bottomNav .fui-Button__icon {
