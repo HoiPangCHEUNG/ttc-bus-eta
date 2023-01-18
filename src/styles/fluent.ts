@@ -20,6 +20,10 @@ export const fluentStyles = makeStyles({
   badge: {
     ...shorthands.margin("0.5rem", "0.25rem"),
     minWidth: "min-content",
+    marginTop: "0px",
+    marginBottom: "8px",
+    marginLeft: "0px",
+    marginRight: "8px",
   },
   accordionHeader: {
     ...shorthands.margin("0.25rem", "0"),
